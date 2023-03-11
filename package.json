@@ -1,0 +1,62 @@
+{
+  "name": "savia-backend-template",
+  "version": "1.0.0",
+  "description": "template to create new backend ms for savia-app",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard | snazzy",
+    "start": "node index.js",
+    "lint-fix": "standard --fix",
+    "dev": "export $(cat .env) && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "test",
+      "expect",
+      "beforeAll",
+      "afterAll"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint",
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "nodemon": "^2.0.21",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savia-product/savia-backend-template.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "e10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/savia-product/savia-backend-template/issues"
+  },
+  "homepage": "https://github.com/savia-product/savia-backend-template#readme",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "amqplib": "^0.10.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "savia-enums": "github:savia-product/savia-enums",
+    "savia-mongoose": "github:savia-product/savia-mongoose",
+    "savia-utils": "github:savia-product/savia-utils",
+    "undici": "^5.20.0"
+  }
+}
