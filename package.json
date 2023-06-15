@@ -7,7 +7,7 @@
     "lint": "standard | snazzy",
     "start": "node index.js",
     "lint-fix": "standard --fix",
-    "dev": "export $(cat .env) && nodemon index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "standard": {
@@ -34,10 +34,6 @@
   "engines": {
     "node": ">=14"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/savia-product/savia-backend-template.git"
-  },
   "keywords": [
     "template"
   ],
@@ -52,11 +48,11 @@
     "amqplib": "^0.10.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "helmet": "^6.0.1",
-    "savia-enums": "github:savia-product/savia-enums",
-    "savia-mongoose": "github:savia-product/savia-mongoose",
-    "savia-utils": "github:savia-product/savia-utils",
+    "module-alias": "^2.2.3",
+    "mongoose": "^7.3.0",
     "undici": "^5.20.0"
   }
 }
