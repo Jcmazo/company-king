@@ -1,0 +1,10 @@
+GET http://localhost:3000/api/v1/employees 
+
+###
+POST http://localhost:3000/api/v1/employees 
+content-type: application/json
+{
+    "name": "Mael",
+    "email": "26",
+    "age": "mael26@gmail.com"
+}

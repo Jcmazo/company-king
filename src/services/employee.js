@@ -1,7 +1,17 @@
 const employeeRepository =require('@repositories/employee/index')
-const createEmployee = async (dataEmployee) =>{
-  const employee = await employeeRepository.createEmployee(dataEmployee)
-  return employee;
+
+const getEmployee = async () =>{
+  const employee = await employeeRepository.getEmployee()
+  return employee
 }
 
-module.exports = { createEmployee }
+const createEmployee = async (dataEmployee) =>{
+  const employee = await employeeRepository.createEmployee(dataEmployee)
+  return employee
+}
+
+const updateEmployee = async (dataEmployee) =>{
+  const employee = await employeeRepository.updateEmployee(dataEmployee)
+  return employee
+}
+  module.exports = {getEmployee,createEmployee,updateEmployee}
