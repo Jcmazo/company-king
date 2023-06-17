@@ -2,7 +2,7 @@
 
 const employeeService = require('@services/employee')
 
-const getEmployee  = async (req, res) =>{ 
+const getEmployee = async (req, res) => {
   try {
     const fingemployee = await employeeService.getEmployee()
     return res.json(fingemployee)
@@ -14,7 +14,7 @@ const getEmployee  = async (req, res) =>{
 
 const createEmployee = async (req, res) => {
   try {
-    const { name, email, age} = req.body
+    const { name, email, age } = req.body
     const newEmploye = { name, email, age }
     const employee = await employeeService.createEmployee(newEmploye)
     return res.json(employee)
@@ -28,7 +28,7 @@ const updateEmployee = async (req, res) => {
   try {
     const employeeId = req.params.id
     const { name, email, age } = req.body
-    const updatedEmployee = { name, email, age, employeeId}
+    const updatedEmployee = { name, email, age, employeeId }
     const employee = await employeeService.updateEmployee(updatedEmployee)
     return res.json(employee)
   } catch (error) {
@@ -37,4 +37,6 @@ const updateEmployee = async (req, res) => {
   }
 }
 
-module.exports = {getEmployee, createEmployee,updateEmployee}
+//const getIdEmployee = sysnc(red, res)
+
+module.exports = { getEmployee, createEmployee, updateEmployee }
