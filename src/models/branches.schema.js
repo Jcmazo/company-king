@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 
-const EMPLOYEE_SCHEMA = mongoose.Schema({
+const BRANCHES_SCHEMA = mongoose.Schema({
   name:{
     type: String,
     required:true
   },
-  email:{
+  location:{
     type: String,
     required:true
   },
-  age:{
+  contact:{
     type: String,
     required:true
   },
-  documentId:{
+  services:{
     type: String,
     required:true
   }
 });
 
-module.exports = mongoose.model('Employee', EMPLOYEE_SCHEMA);
+module.exports = mongoose.model('Branches', BRANCHES_SCHEMA);

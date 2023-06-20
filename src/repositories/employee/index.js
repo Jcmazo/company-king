@@ -6,10 +6,10 @@ const getEmployee = async () => {
     return employee
   } catch (error) {
     console.log(error)
-    return {error:'Error get employee'}
+    return { error: 'Error get employee' }
   }
-   
 }
+
 const createEmployee = async (dataEmployee) => {
   console.log('------------', dataEmployee)
   const employee = EmployeeSchema(dataEmployee)
@@ -29,7 +29,7 @@ const updateEmployee = async (dataEmployee) => {
   console.log('------------', dataEmployee)
   const employee = EmployeeSchema(dataEmployee)
   return employee
-    .updateOne({ _id: dataEmployee.employeeId}, {$set:{dataEmployee}})
+    .updateOne({ _id: dataEmployee.employeeId }, { $set: { dataEmployee }})
     .then((data) => {
       console.log(data)
       return 'employee update successfully'
@@ -40,5 +40,19 @@ const updateEmployee = async (dataEmployee) => {
     })
 }
 
+const deleteEmployee = async (dataEmployee) => {
+  console.log('------------', dataEmployee)
+  const employee = EmployeeSchema(dataEmployee)
+  return employee
+    .deleteOne({ _id: dataEmployee})
+    .then((data) => {
+      console.log(data)
+      return 'employee updadelete successfully'
+    })
+    .catch((err) => {
+      console.error('Error delete employee', err)
+      return err
+    })
+}
 
-module.exports = {getEmployee, createEmployee, updateEmployee }
+module.exports = { getEmployee, createEmployee, updateEmployee , deleteEmployee}

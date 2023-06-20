@@ -14,4 +14,9 @@ const updateEmployee = async (dataEmployee) =>{
   const employee = await employeeRepository.updateEmployee(dataEmployee)
   return employee
 }
-  module.exports = {getEmployee,createEmployee,updateEmployee}
+
+const deleteEmployee = async (dataEmployee) =>{
+  const employee = await employeeRepository.updateEmployee(dataEmployee)
+  return employee
+}
+  module.exports = {getEmployee,createEmployee,updateEmployee,deleteEmployee}
