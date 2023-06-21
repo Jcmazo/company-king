@@ -1,6 +1,6 @@
 'use strict'
 
-const employeeService = require('@services/employee')
+const employeeService = require('../services/employee')
 
 const getEmployee = async (req, res) => {
   try {

@@ -1,6 +1,6 @@
 'use strict'
 
-const EmployeesController = require('@controllers/employees')
+const EmployeesController = require('../controllers/employees')
 const validateFields = require('../helpers/validation/employee')
 
 async function employeesRoutes(app){

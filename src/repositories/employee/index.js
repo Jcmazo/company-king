@@ -1,4 +1,4 @@
-const EmployeeSchema = require('@models/employee.schema');
+const EmployeeSchema = require('../../models/employee.schema');
 
 const getEmployee = async () => {
   try {
@@ -27,9 +27,9 @@ const createEmployee = async (dataEmployee) => {
 
 const updateEmployee = async (dataEmployee) => {
   console.log('------------', dataEmployee)
-  const employee = EmployeeSchema(dataEmployee)
-  return employee
-    .updateOne({ _id: dataEmployee.employeeId }, { $set: { dataEmployee }})
+  return await EmployeeSchema
+    .updateOne({ _id: dataEmployee.employeeId },
+      { $set: dataEmployee })
     .then((data) => {
       console.log(data)
       return 'employee update successfully'
@@ -42,12 +42,11 @@ const updateEmployee = async (dataEmployee) => {
 
 const deleteEmployee = async (dataEmployee) => {
   console.log('------------', dataEmployee)
-  const employee = EmployeeSchema(dataEmployee)
-  return employee
-    .deleteOne({ _id: dataEmployee})
+  return await EmployeeSchema
+    .deleteOne({ _id: dataEmployee })
     .then((data) => {
       console.log(data)
-      return 'employee updadelete successfully'
+      return 'employee delete successfully'
     })
     .catch((err) => {
       console.error('Error delete employee', err)
@@ -55,4 +54,4 @@ const deleteEmployee = async (dataEmployee) => {
     })
 }
 
-module.exports = { getEmployee, createEmployee, updateEmployee , deleteEmployee}
+module.exports = { getEmployee, createEmployee, updateEmployee, deleteEmployee }
