@@ -1,51 +1,49 @@
-const branchesService = require('../services/branches')
+const brancheService = require('../services/branches')
 
-const getBranches = async (req, res) => {
+const getBranche = async (req, res) => {
   try {
-    const fingBranches = await branchesService.getBranches()
-    return res.json(fingBranches)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const fingBranche = await brancheService.getBranche()
+    return res.json(fingBranche)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-const createBranches = async (req, res) => {
+const createBranche = async (req, res) => {
   try {
     const { name, location, contact, services } = req.body
-    const newBranches = { name, location, contact, services }
-    console.log('This controllers')
-    console.log('......................', newBranches)
-    const branches = await branchesService.createBranches(newBranches)
-    return res.json(branches)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const newBranche = { name, location, contact, services }
+    const branche = await brancheService.createBranche(newBranche)
+    return res.json(branche)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-const updateBranches = async (req, res) => {
+const updateBranche = async (req, res) => {
   try {
-    const branchesId = req.params.id
+    const brancheId = req.params.id
     const { name, location, contact, services } = req.body
-    const updatedBranches = { name, location, contact, services, branchesId }
-    const branches = await branchesService.updateBranches(updatedBranches)
-    return res.json(branches)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const newBranche = { name, location, contact, services, brancheId }
+    const branche = await brancheService.updateBranche(newBranche)
+    return res.json(branche)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-const deleteBranches = async (req, res) => {
+const deleteBranche = async (req, res) => {
   try {
-    const branchesId = req.params.id
-    const branches = await branchesService.deleteBranches(branchesId)
-    return res.json(branches)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const brancheId = req.params.id
+    const branche = await brancheService.deleteBranche(brancheId)
+    return res.json(branche)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-module.exports = { getBranches, createBranches, updateBranches, deleteBranches }
+module.exports = { getBranche, createBranche, updateBranche, deleteBranche }

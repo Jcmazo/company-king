@@ -1,50 +1,49 @@
-const productsSchema = require('../../models/product.schema');
+const productSchema = require('../../models/product.schema');
 
 
-const getProducts = async () => {
+const getProduct = async () => {
   try {
-    const products = await productsSchema.find()
-    return products
-  } catch (error) {
-    console.log(error)
+    const product = await productSchema.find()
+    return product
+  } catch (err) {
+    console.log(err)
+    return err
   }
 }
 
-const createProducts = async (dataProducts) => {
+const createProduct = async (dataProduct) => {
   try {
-    console.log('-------------', dataProducts)
-    const products = productsSchema(dataProducts)
-    return products
+    const product = productSchema(dataProduct)
+    return product
       .save()
       .then((data) => {
         console.log(data)
         return 'product created successfully'
       })
-  } catch (error) {
+  } catch (err) {
     console.log('Error creatind product')
+    return err
   }
 }
 
-const updateProducts = async (dataProducts) => {
+const updateProduct = async (dataProduct) => {
   try {
-    console.log('-------------', dataProducts)
-    return await productsSchema
-      .updateOne({ _id: dataProducts.productsId }, { $set: dataProducts })
+    return await productSchema
+      .updateOne({ _id: dataProduct.productId }, { $set: dataProduct })
       .then((data) => {
         console.log(data)
         return 'product updated successfully'
       })
-  } catch (error) {
+  } catch (err) {
     console.log('Error updating product')
-    return error
+    return err
   }
 }
 
-const deleteProducts = async (dataProducts) => {
+const deleteProduct = async (dataProduct) => {
   try {
-    console.log('-------------', dataProducts)
-    return await productsSchema
-      .deleteOne({ _id: dataProducts })
+    return await productSchema
+      .deleteOne({ _id: dataProduct })
       .then((data) => {
         console.log(data)
         return 'product deleted successfully'
@@ -56,4 +55,4 @@ const deleteProducts = async (dataProducts) => {
 }
 
 
-module.exports = { getProducts, createProducts, updateProducts, deleteProducts }
+module.exports = { getProduct, createProduct, updateProduct, deleteProduct }

@@ -1,24 +1,24 @@
-const productsRepository = require('../repositories/products/index')
+const productRepository = require('../repositories/products/index')
 
-const createProducts = async (dataProducts) => {
-  const products = await productsRepository.createProducts(dataProducts)
-  return products
+const createProduct = async (dataproduct) => {
+  const product = await productRepository.createProduct(dataproduct)
+  return product
 }
 
-const getProducts = async () => {
-  const products = await productsRepository.getProducts()
-  return products
+const getProduct = async () => {
+  const product = await productRepository.getProduct()
+  return product
 }
 
-const updateProducts = async (dataProducts) => {
-  console.log('-------------',dataProducts)
-  const updatedProducts = await productsRepository.updateProducts(dataProducts)
-  return updatedProducts
+const updateProduct = async (dataproduct) => {
+  console.log('-------------',dataproduct)
+  const product = await productRepository.updateProduct(dataproduct)
+  return product
 }
 
-const deleteProducts = async (dataProducts)=>{
-  const product = await productsRepository.deleteProducts(dataProducts)
+const deleteProduct = async (dataproduct)=>{
+  const product = await productRepository.deleteProduct(dataproduct)
     return product
 }
 
-module.exports = { getProducts, createProducts ,updateProducts,deleteProducts}
+module.exports = { getProduct, createProduct ,updateProduct,deleteProduct}

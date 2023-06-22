@@ -1,8 +1,8 @@
-const EmployeeSchema = require('../../models/employee.schema');
+const employeeSchema = require('../../models/employee.schema');
 
 const getEmployee = async () => {
   try {
-    const employee = await EmployeeSchema.find()
+    const employee = await employeeSchema.find()
     return employee
   } catch (error) {
     console.log(error)
@@ -11,8 +11,7 @@ const getEmployee = async () => {
 }
 
 const createEmployee = async (dataEmployee) => {
-  console.log('------------', dataEmployee)
-  const employee = EmployeeSchema(dataEmployee)
+  const employee = employeeSchema(dataEmployee)
   return employee
     .save()
     .then((data) => {
@@ -26,8 +25,7 @@ const createEmployee = async (dataEmployee) => {
 }
 
 const updateEmployee = async (dataEmployee) => {
-  console.log('------------', dataEmployee)
-  return await EmployeeSchema
+  return await employeeSchema
     .updateOne({ _id: dataEmployee.employeeId },
       { $set: dataEmployee })
     .then((data) => {
@@ -41,8 +39,7 @@ const updateEmployee = async (dataEmployee) => {
 }
 
 const deleteEmployee = async (dataEmployee) => {
-  console.log('------------', dataEmployee)
-  return await EmployeeSchema
+  return await employeeSchema
     .deleteOne({ _id: dataEmployee })
     .then((data) => {
       console.log(data)

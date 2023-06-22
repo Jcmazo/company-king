@@ -6,9 +6,9 @@ const getEmployee = async (req, res) => {
   try {
     const fingemployee = await employeeService.getEmployee()
     return res.json(fingemployee)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error);
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err);
   }
 }
 
@@ -18,9 +18,9 @@ const createEmployee = async (req, res) => {
     const newEmploye = { name, email, age ,documentId }
     const employee = await employeeService.createEmployee(newEmploye)
     return res.json(employee)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error);
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err);
   }
 }
 
@@ -31,9 +31,9 @@ const updateEmployee = async (req, res) => {
     const updatedEmployee = { name, email, age, documentId,employeeId}
     const employee = await employeeService.updateEmployee(updatedEmployee)
     return res.json(employee)
-  } catch (error) {
-    console.error(error);
-    return res.status(424).json(error)
+  } catch (err) {
+    console.error(err);
+    return res.status(424).json(err)
   }
 }
 
@@ -42,9 +42,9 @@ const deleteEmployee = async (req, res) => {
     const employeeId = req.params.id
     const employee = await employeeService.deleteEmployee(employeeId)
     return res.json(employee)
-  } catch (error) {
-    console.error(error);
-    return res.status(424).json(error)
+  } catch (err) {
+    console.error(err);
+    return res.status(424).json(err)
   }
 }
 

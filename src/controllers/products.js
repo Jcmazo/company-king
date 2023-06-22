@@ -1,53 +1,51 @@
 'use strict'
 
-const productsService = require('../services/products')
+const productService = require('../services/products')
 
-const getProducts = async (req, res) =>{
+const getProduct = async (req, res) =>{
   try {
-      const products = await productsService.getProducts()
-      return res.json(products)
-    } catch (error) {
-      console.error(error)
-      return res.status(424).json(error)
+      const product = await productService.getProduct()
+      return res.json(product)
+    } catch (err) {
+      console.error(err)
+      return res.status(424).json(err)
     }
 }
 
-const createProducts = async (req,res) => {
+const createProduct = async (req,res) => {
   try {
     const { name, price, amount } = req.body
-    const newProducts = { name, price, amount }
-    console.log('------------------',newProducts)
-    const products = await productsService.createProducts(newProducts)
-    return res.json(products)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const newProduct = { name, price, amount }
+    const product = await productService.createProduct(newProduct)
+    return res.json(product)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-const updateProducts = async (req,res) => {
+const updateProduct = async (req,res) => {
   try {
-    const productsId = req.params.id
+    const productId = req.params.id
     const {name, price, amount } = req.body
-    const updatedProducts = {name, price, amount,productsId }
-    console.log('------------------',updatedProducts)
-    const products = await productsService.updateProducts(updatedProducts)
-    return res.json(products)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+    const updatedproduct = {name, price, amount,productId }
+    const product = await productService.updateProduct(updatedproduct)
+    return res.json(product)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   } 
 }
 
-const deleteProducts = async (req, res)=>{
+const deleteProduct = async (req, res)=>{
   try {
     const productId = req.params.id
-    const product = await productsService.deleteProducts(productId)
+    const product = await productService.deleteProduct(productId)
     return res.json(product)
-  } catch (error) {
-    console.error(error)
-    return res.status(424).json(error)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
   }
 }
 
-module.exports= {getProducts, createProducts,updateProducts,deleteProducts}
+module.exports= {getProduct, createProduct,updateProduct,deleteProduct}

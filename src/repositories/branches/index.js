@@ -1,21 +1,20 @@
-const branchesSchema = require('../../models/branches.schema');
+const brancheSchema = require('../../models/branches.schema');
 
-const getBranches = async () => {
+const getBranche = async () => {
   try {
-    const branches = await branchesSchema.find()
-    return branches
+    const branche = await brancheSchema.find()
+    return branche
   } catch (error) {
     console.log(error)
-    return { error: 'Error get branches' }
+    return { error: 'Error get branche' }
   }
 }
 
-const createBranches = async (dataBranche) => {
+const createBranche = async (dataBranche) => {
   try {
-    console.log('This repositori')
     console.log('------------', dataBranche)
-    const branches = branchesSchema(dataBranche)
-    return branches
+    const branche = brancheSchema(dataBranche)
+    return branche
       .save()
       .then((data) => {
         console.log(data)
@@ -27,13 +26,12 @@ const createBranches = async (dataBranche) => {
   }
 }
 
-const updateBranches = async (dataBranches) =>{
+const updateBranche = async (databranche) =>{
   try {
-    console.log('This repositori')
-    console.log('------------',dataBranches)
-    return await branchesSchema
-     .updateOne({ _id : dataBranches.branchesId},
-      { $set: dataBranches})
+    console.log('------------',databranche)
+    return await brancheSchema
+     .updateOne({ _id : databranche.brancheId},
+      { $set: databranche})
      .then((data) => {
         console.log(data)
         return 'branche updated successfully'
@@ -44,12 +42,11 @@ const updateBranches = async (dataBranches) =>{
   }
 }
 
-const deleteBranches = async (dataBranches) =>{
+const deleteBranche = async (databranche) =>{
   try {
-    console.log('This repositori')
-    console.log('------------',dataBranches)
-    return await branchesSchema
-    .deleteOne({ _id : dataBranches})
+    console.log('------------',databranche)
+    return await brancheSchema
+    .deleteOne({ _id : databranche})
     .then((data) => {
         console.log(data)
         return 'branche deleted successfully'
@@ -60,4 +57,4 @@ const deleteBranches = async (dataBranches) =>{
   }
 }
 
-module.exports = {getBranches,createBranches,updateBranches,deleteBranches}
+module.exports = {getBranche,createBranche,updateBranche,deleteBranche}
