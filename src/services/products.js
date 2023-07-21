@@ -11,14 +11,13 @@ const getProduct = async () => {
 }
 
 const updateProduct = async (dataproduct) => {
-  console.log('-------------',dataproduct)
   const product = await productRepository.updateProduct(dataproduct)
   return product
 }
 
-const deleteProduct = async (dataproduct)=>{
+const deleteProduct = async (dataproduct) => {
   const product = await productRepository.deleteProduct(dataproduct)
-    return product
+  return product
 }
 
-module.exports = { getProduct, createProduct ,updateProduct,deleteProduct}
+module.exports = { getProduct, createProduct, updateProduct, deleteProduct }

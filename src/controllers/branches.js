@@ -2,8 +2,8 @@ const brancheService = require('../services/branches')
 
 const getBranche = async (req, res) => {
   try {
-    const fingBranche = await brancheService.getBranche()
-    return res.json(fingBranche)
+    const findBranche = await brancheService.getBranche()
+    return res.json(findBranche)
   } catch (err) {
     console.error(err)
     return res.status(424).json(err)

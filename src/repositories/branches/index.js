@@ -1,4 +1,4 @@
-const brancheSchema = require('../../models/branches.schema');
+const brancheSchema = require('../../models/branches.schema')
 
 const getBranche = async () => {
   try {
@@ -12,7 +12,6 @@ const getBranche = async () => {
 
 const createBranche = async (dataBranche) => {
   try {
-    console.log('------------', dataBranche)
     const branche = brancheSchema(dataBranche)
     return branche
       .save()
@@ -26,13 +25,12 @@ const createBranche = async (dataBranche) => {
   }
 }
 
-const updateBranche = async (databranche) =>{
+const updateBranche = async (databranche) => {
   try {
-    console.log('------------',databranche)
     return await brancheSchema
-     .updateOne({ _id : databranche.brancheId},
-      { $set: databranche})
-     .then((data) => {
+      .updateOne({ _id: databranche.brancheId },
+        { $set: databranche })
+      .then((data) => {
         console.log(data)
         return 'branche updated successfully'
       })
@@ -42,12 +40,11 @@ const updateBranche = async (databranche) =>{
   }
 }
 
-const deleteBranche = async (databranche) =>{
+const deleteBranche = async (databranche) => {
   try {
-    console.log('------------',databranche)
     return await brancheSchema
-    .deleteOne({ _id : databranche})
-    .then((data) => {
+      .deleteOne({ _id: databranche })
+      .then((data) => {
         console.log(data)
         return 'branche deleted successfully'
       })
@@ -57,4 +54,4 @@ const deleteBranche = async (databranche) =>{
   }
 }
 
-module.exports = {getBranche,createBranche,updateBranche,deleteBranche}
+module.exports = { getBranche, createBranche, updateBranche, deleteBranche }

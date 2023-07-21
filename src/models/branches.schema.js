@@ -1,22 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const BRANCHES_SCHEMA = mongoose.Schema({
-  name:{
+  name: {
     type: String,
-    required:true
+    required: true
   },
-  location:{
+  location: {
     type: String,
-    required:true
+    required: true
   },
-  contact:{
+  contact: {
     type: String,
-    required:true
+    required: true
   },
-  services:{
+  services: {
     type: String,
-    required:true
+    required: true
   }
-});
+})
 
-module.exports = mongoose.model('Branches', BRANCHES_SCHEMA);
+module.exports = mongoose.model('Branches', BRANCHES_SCHEMA)

@@ -1,5 +1,4 @@
-const productSchema = require('../../models/product.schema');
-
+const productSchema = require('../../models/product.schema')
 
 const getProduct = async () => {
   try {
@@ -53,6 +52,5 @@ const deleteProduct = async (dataProduct) => {
     return err
   }
 }
-
 
 module.exports = { getProduct, createProduct, updateProduct, deleteProduct }

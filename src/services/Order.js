@@ -61,13 +61,13 @@ class Order {
     let response = false
 
     try {
-      const { statusCode, body } = await request(SampleHelperService.createRecord, {  }, retryStatus)
+      const { statusCode, body } = await request(SampleHelperService.createRecord, { }, retryStatus)
       const result = await body.json()
 
-      if(statusCode === 200 || statusCode === 201) {
+      if (statusCode === 200 || statusCode === 201) {
         await Promise.all([
           orderRepository.update(order.id, { invoiceId: result.number, invoiceIdERP: result.id, invoicingStatus: 'INVOICED' }),
-          orderTrackingRepository.create({ ...tracking, orderId: order.id, companyId: order.company.id }),
+          orderTrackingRepository.create({ ...tracking, orderId: order.id, companyId: order.company.id })
         ])
       }
 
@@ -95,7 +95,6 @@ class Order {
 
     return response
   }
-
 }
 
 module.exports = Order

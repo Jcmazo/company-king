@@ -17,7 +17,7 @@ const updateBranche = async (dataBranche) => {
 
 const deleteBranche = async (databranche) => {
   const branche = await brancheRepository.deleteBranche(databranche)
-    return branche
+  return branche
 }
 
-module.exports = { getBranche,createBranche,updateBranche,deleteBranche }
+module.exports = { getBranche, createBranche, updateBranche, deleteBranche }

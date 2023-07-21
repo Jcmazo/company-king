@@ -2,17 +2,17 @@
 
 const productService = require('../services/products')
 
-const getProduct = async (req, res) =>{
+const getProduct = async (req, res) => {
   try {
-      const product = await productService.getProduct()
-      return res.json(product)
-    } catch (err) {
-      console.error(err)
-      return res.status(424).json(err)
-    }
+    const findpPoduct = await productService.getProduct()
+    return res.json(findpPoduct)
+  } catch (err) {
+    console.error(err)
+    return res.status(424).json(err)
+  }
 }
 
-const createProduct = async (req,res) => {
+const createProduct = async (req, res) => {
   try {
     const { name, price, amount } = req.body
     const newProduct = { name, price, amount }
@@ -24,20 +24,20 @@ const createProduct = async (req,res) => {
   }
 }
 
-const updateProduct = async (req,res) => {
+const updateProduct = async (req, res) => {
   try {
     const productId = req.params.id
-    const {name, price, amount } = req.body
-    const updatedproduct = {name, price, amount,productId }
+    const { name, price, amount } = req.body
+    const updatedproduct = { name, price, amount, productId }
     const product = await productService.updateProduct(updatedproduct)
     return res.json(product)
   } catch (err) {
     console.error(err)
     return res.status(424).json(err)
-  } 
+  }
 }
 
-const deleteProduct = async (req, res)=>{
+const deleteProduct = async (req, res) => {
   try {
     const productId = req.params.id
     const product = await productService.deleteProduct(productId)
@@ -48,4 +48,4 @@ const deleteProduct = async (req, res)=>{
   }
 }
 
-module.exports= {getProduct, createProduct,updateProduct,deleteProduct}
+module.exports = { getProduct, createProduct, updateProduct, deleteProduct }

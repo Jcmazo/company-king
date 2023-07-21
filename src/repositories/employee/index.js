@@ -1,4 +1,4 @@
-const employeeSchema = require('../../models/employee.schema');
+const employeeSchema = require('../../models/employee.schema')
 
 const getEmployee = async () => {
   try {
