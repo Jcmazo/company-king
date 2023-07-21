@@ -2,7 +2,7 @@
 
 class Savia {
   static async getSavia (req, res) {
-    return res.send({ hello: 'hello from sample connector, Savia' })
+    return res.send({ hello: 'hello welcome company king' })
   }
 }
 
